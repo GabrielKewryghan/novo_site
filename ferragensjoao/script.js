@@ -9,6 +9,13 @@ document.addEventListener("DOMContentLoaded", function () {
         areia: 20.00
     }
 
+    let estoque = {
+        ferro: 80,
+        aco: 90,
+        ah: 999,
+        areia:200
+    }
+
     botao.addEventListener("click", function() {   //Aqui o script espera o clique do butão para executar a função
 
         const produtoSelecionado = document.getElementById("escPro").value;     // pegamos a escolha de feito no formulario 
@@ -17,6 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (quantidade <= 0) {  //verificamos se a quantidade é valida
             resultado.textContent = "Por favor, insira uma quantidade válida.";
             return; //caso seja invalida, paramos a execução com return
+        }
+
+        if (quantidade > estoque[produtoSelecionado]) {
+            resultado.textContent = "Estoque insuficiente para realizar a operação";
+            return;
         }
 
         const precoUnitario = precos[produtoSelecionado]; //pegamos o preço do produto usando o nome do produto como chave para o objeto preços
