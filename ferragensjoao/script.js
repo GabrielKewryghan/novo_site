@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const botao = document.getElementById("produtoForm"); //const cria uma variavel imutavel, form é o formulario com os campos de produto e quantidade
+    const botao = document.getElementById("confirmarBTN"); //const cria uma variavel imutavel, form é o formulario com os campos de produto e quantidade
     const resultado = document.getElementById("resultado"); // resultado é o paragrafo onde vamos mostrar o valor total calculado
 
     const precos = {    //Criamos um objeto (dicionario em python) atribuindo um valor as "options" no HTML
@@ -33,7 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const precoUnitario = precos[produtoSelecionado]; //pegamos o preço do produto usando o nome do produto como chave para o objeto preços
         const total = precoUnitario * quantidade; //por fim, calculamos o resultado;
-
+        estoque [produtoSelecionado]-= quantidade;
+        console.log(estoque[produtoSelecionado]);
         resultado.textContent = `Total a pagar: R$ ${total.toFixed(2)}`; //por fim, mostramos o resultado com duas casa decimais com ToFixed(2)
     });
 });
