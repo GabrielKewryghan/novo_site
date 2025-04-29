@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const precos = {    //Criamos um objeto (dicionario em python) atribuindo um valor as "options" no HTML
         ferro: 50.00,
         aco: 70.00,
-        ah: 999.99,
+        arame: 59.90,
         areia: 20.00
     }
 
     let estoque = {
         ferro: 80,
         aco: 90,
-        ah: 999,
+        arame: 59.90,
         areia:200
     }
 
