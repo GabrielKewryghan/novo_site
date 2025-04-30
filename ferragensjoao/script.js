@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const botaoAdicEst = document.getElementById("adicionarEstBTN"); //Cria uma variavel guardando o botão de adicionar estoque
     const botao = document.getElementById("confirmarBTN"); //const cria uma variavel imutavel, form é o formulario com os campos de produto e quantidade
     const resultado = document.getElementById("resultado"); // resultado é o paragrafo onde vamos mostrar o valor total calculado
 
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const produtoSelecionado = document.getElementById("escPro").value;     // pegamos a escolha de feito no formulario 
         const quantidade = parseInt(document.getElementById("quantidade").value);   //o mesmo é feito com a quantidade, mas usamos parseInt o transforma em um numero
 
-        if (quantidade <= 0) {  //verificamos se a quantidade é valida
+        if (isNaN(quantidade) || quantidade <= 0) {  //verificamos se a quantidade é valida
             resultado.textContent = "Por favor, insira uma quantidade válida.";
             return; //caso seja invalida, paramos a execução com return
         }
@@ -36,5 +37,20 @@ document.addEventListener("DOMContentLoaded", function () {
         estoque [produtoSelecionado]-= quantidade;
         console.log(estoque[produtoSelecionado]);
         resultado.textContent = `Total a pagar: R$ ${total.toFixed(2)}`; //por fim, mostramos o resultado com duas casa decimais com ToFixed(2)
+    });
+
+    botaoAdicEst.addEventListener("click", function() {
+
+        const produtoSelecionado = document.getElementById("escPro").value;     // pegamos a escolha de feito no formulario 
+        const quantidade = parseInt(document.getElementById("quantidade").value);   //o mesmo é feito com a quantidade, mas usamos parseInt o transforma em um numero
+
+        if (quantidade <= 0) {  //verificamos se a quantidade é valida
+            resultado.textContent = "Por favor, insira uma quantidade válida.";
+            return; //caso seja invalida, paramos a execução com return
+        }
+
+        estoque[produtoSelecionado] += quantidade;
+        console.log(estoque[produtoSelecionado]);
+        resultado.textContent = `${quantidade} unidades de ${produtoSelecionado} adicionadas ao estoque. Estoque atual: ${estoque[produtoSelecionado]}`;
     });
 });
