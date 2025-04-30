@@ -67,6 +67,18 @@ input[type="number"] {
     background-color: #005fa3;
   }
   
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px; /* Aqui está a separação */
+  }
+
   /* Resultado */
   #resultado {
     margin-top: 20px;
